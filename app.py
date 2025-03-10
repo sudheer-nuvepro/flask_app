@@ -1,10 +1,8 @@
-from flask import Flask
+from fastapi import FastAPI
+import uvicorn
 
-app = Flask(__name__)
+app = FastAPI()
 
-@app.route('/')
-def home():
-    return "Hello, Azure! Your Flask app is running on Azure App Service."
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+@app.get("/")
+def read_root():
+    return "Hello World"
